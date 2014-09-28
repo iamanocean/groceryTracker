@@ -13,6 +13,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let tesseract = Tesseract(language: "eng+ita")
+        
+        let image = UIImage(named: "image_sample.jpg")
+        
+        
+        tesseract.setVariableValue("0123456789", forKey: "tessedit_char_whitelist")
+        tesseract.image = image.blackAndWhite()
+        tesseract.recognize();
+        
+        println(tesseract.recognizedText)
         println("Hello, World!")
     }
 

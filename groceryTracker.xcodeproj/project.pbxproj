@@ -13,6 +13,11 @@
 		BEB1641619CFAF2C00A1F3CB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEB1641519CFAF2C00A1F3CB /* Images.xcassets */; };
 		BEB1641919CFAF2C00A1F3CB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEB1641719CFAF2C00A1F3CB /* LaunchScreen.xib */; };
 		BEB1642519CFAF2C00A1F3CB /* groceryTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB1642419CFAF2C00A1F3CB /* groceryTrackerTests.swift */; };
+		BECAC04C19D7B41700862F2A /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BECAC04B19D7B41700862F2A /* libstdc++.6.0.9.dylib */; };
+		BECAC04E19D7B44900862F2A /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BECAC04D19D7B44900862F2A /* TesseractOCR.framework */; };
+		BECAC05019D7B48B00862F2A /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = BECAC04F19D7B48B00862F2A /* tessdata */; };
+		BECAC05219D7B49A00862F2A /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BECAC05119D7B49A00862F2A /* CoreImage.framework */; };
+		BECAC05719D7B4F000862F2A /* image_sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BECAC05619D7B4F000862F2A /* image_sample.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,12 @@
 		BEB1641E19CFAF2C00A1F3CB /* groceryTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = groceryTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB1642319CFAF2C00A1F3CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEB1642419CFAF2C00A1F3CB /* groceryTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = groceryTrackerTests.swift; sourceTree = "<group>"; };
+		BECAC04B19D7B41700862F2A /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
+		BECAC04D19D7B44900862F2A /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TesseractOCR.framework; path = Products/TesseractOCR.framework; sourceTree = "<group>"; };
+		BECAC04F19D7B48B00862F2A /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
+		BECAC05119D7B49A00862F2A /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		BECAC05319D7B4B200862F2A /* groceryTracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "groceryTracker-Bridging-Header.h"; sourceTree = "<group>"; };
+		BECAC05619D7B4F000862F2A /* image_sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image_sample.jpg; path = "../../../../Desktop/Tesseract-OCR-iOS-master/Template Framework Project/Template Framework Project/image_sample.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +54,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BECAC05219D7B49A00862F2A /* CoreImage.framework in Frameworks */,
+				BECAC04E19D7B44900862F2A /* TesseractOCR.framework in Frameworks */,
+				BECAC04C19D7B41700862F2A /* libstdc++.6.0.9.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,9 +73,14 @@
 		BEB1640019CFAF2B00A1F3CB = {
 			isa = PBXGroup;
 			children = (
+				BECAC05119D7B49A00862F2A /* CoreImage.framework */,
+				BECAC04F19D7B48B00862F2A /* tessdata */,
+				BECAC04D19D7B44900862F2A /* TesseractOCR.framework */,
+				BECAC04B19D7B41700862F2A /* libstdc++.6.0.9.dylib */,
 				BEB1640B19CFAF2C00A1F3CB /* groceryTracker */,
 				BEB1642119CFAF2C00A1F3CB /* groceryTrackerTests */,
 				BEB1640A19CFAF2C00A1F3CB /* Products */,
+				BECAC05319D7B4B200862F2A /* groceryTracker-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +96,7 @@
 		BEB1640B19CFAF2C00A1F3CB /* groceryTracker */ = {
 			isa = PBXGroup;
 			children = (
+				BECAC05619D7B4F000862F2A /* image_sample.jpg */,
 				BEB1640E19CFAF2C00A1F3CB /* AppDelegate.swift */,
 				BEB1641019CFAF2C00A1F3CB /* ViewController.swift */,
 				BEB1641219CFAF2C00A1F3CB /* Main.storyboard */,
@@ -193,6 +213,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEB1641419CFAF2C00A1F3CB /* Main.storyboard in Resources */,
+				BECAC05719D7B4F000862F2A /* image_sample.jpg in Resources */,
+				BECAC05019D7B48B00862F2A /* tessdata in Resources */,
 				BEB1641919CFAF2C00A1F3CB /* LaunchScreen.xib in Resources */,
 				BEB1641619CFAF2C00A1F3CB /* Images.xcassets in Resources */,
 			);
@@ -260,7 +282,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -274,6 +296,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -302,7 +325,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -316,6 +339,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -336,9 +360,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Products",
+				);
 				INFOPLIST_FILE = groceryTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_LDFLAGS[arch=*]" = "-lstdc++";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "groceryTracker-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -346,9 +378,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Products",
+				);
 				INFOPLIST_FILE = groceryTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_LDFLAGS[arch=*]" = "-lstdc++";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "groceryTracker-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -405,6 +444,7 @@
 				BEB1642A19CFAF2C00A1F3CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BEB1642B19CFAF2C00A1F3CB /* Build configuration list for PBXNativeTarget "groceryTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +453,7 @@
 				BEB1642D19CFAF2C00A1F3CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
