@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE11FFD419D9043B00D3CC49 /* image_sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE11FFD319D9043B00D3CC49 /* image_sample.jpg */; };
 		BEB1640F19CFAF2C00A1F3CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB1640E19CFAF2C00A1F3CB /* AppDelegate.swift */; };
 		BEB1641119CFAF2C00A1F3CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB1641019CFAF2C00A1F3CB /* ViewController.swift */; };
 		BEB1641419CFAF2C00A1F3CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEB1641219CFAF2C00A1F3CB /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE11FFD319D9043B00D3CC49 /* image_sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_sample.jpg; sourceTree = "<group>"; };
 		BEB1640919CFAF2C00A1F3CB /* groceryTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = groceryTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB1640D19CFAF2C00A1F3CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEB1640E19CFAF2C00A1F3CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 		BEB1640B19CFAF2C00A1F3CB /* groceryTracker */ = {
 			isa = PBXGroup;
 			children = (
+				BE11FFD319D9043B00D3CC49 /* image_sample.jpg */,
 				BECAC05619D7B4F000862F2A /* image_sample.jpg */,
 				BEB1640E19CFAF2C00A1F3CB /* AppDelegate.swift */,
 				BEB1641019CFAF2C00A1F3CB /* ViewController.swift */,
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEB1641419CFAF2C00A1F3CB /* Main.storyboard in Resources */,
+				BE11FFD419D9043B00D3CC49 /* image_sample.jpg in Resources */,
 				BECAC05719D7B4F000862F2A /* image_sample.jpg in Resources */,
 				BECAC05019D7B48B00862F2A /* tessdata in Resources */,
 				BEB1641919CFAF2C00A1F3CB /* LaunchScreen.xib in Resources */,
