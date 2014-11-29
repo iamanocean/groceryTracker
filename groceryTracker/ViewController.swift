@@ -9,6 +9,7 @@
 import UIKit
 import MobileCoreServices
 
+
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     var myImage: UIImage = UIImage(named: "IMG_0240.JPG")!
     var flag: Bool = false
@@ -44,14 +45,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         println("Hello \(bar): \(foo)")
     }
 
-
-    func recognizeImage() {
+    /**
+        Initializes a tesseract object that processes an image and returns the results
+    
+        :param: image A UIImage object that has been binarized so that tesseract can recognize it.
+    
+        :returns: A String object containing the processed text.
+    */
+    func recognizeImage() -> String {
         println("Started to recognize text")
         let tesseract = Tesseract(language: "eng+ita")
         tesseract.image = myImage.grayScale()
         tesseract.recognize()
         println(tesseract.recognizedText)
         textLabel.text = tesseract.recognizedText
+        return textLabel.text!
     }
     
     override func viewDidLoad() {
