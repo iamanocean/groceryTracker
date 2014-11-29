@@ -29,7 +29,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.presentViewController(imagePickerController, animated: true, completion: nil)
         
     }
+
+
+    /**
+        Lorem ipsum dolor sit amet.
     
+        :param: foo Consectetur adipiscing elit.
+    
+        :param: bar Consectetur adipisicing elit.
+    
+        :returns: Sed do eiusmod tempor.
+    */
+    func doNothing(foo: Int, bar: String){
+        println("Hello \(bar): \(foo)")
+    }
+
+
     func recognizeImage() {
         println("Started to recognize text")
         let tesseract = Tesseract(language: "eng+ita")
@@ -43,7 +58,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     
-        
+        doNothing(12, bar: "World")
         
         
         self.recognizeImage()
