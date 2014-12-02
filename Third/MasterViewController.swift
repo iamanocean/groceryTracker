@@ -31,6 +31,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         tesseract.image = UIImage(named: "customer receipt.jpg")
         tesseract.recognize()
         println(tesseract.recognizedText)
+        println("Hello World")
     }
 
     override func didReceiveMemoryWarning() {
