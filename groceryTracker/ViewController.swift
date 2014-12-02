@@ -9,10 +9,16 @@
 import UIKit
 import MobileCoreServices
 
+protocol InformationDelegate {
+    func receiptWasScannedAndRead(data: String, date: NSDate)
+}
+
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    var myImage: UIImage = UIImage(named: "IMG_0240.JPG")!
+    var myImage: UIImage = UIImage(named: "receipt.gif")!
     var flag: Bool = false
+    
+    var delegate: InformationDelegate! = nil
     
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
             println("I've got an image")
@@ -28,7 +34,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePickerController.sourceType = UIImagePickerControllerSourceType.Camera
         imagePickerController.allowsEditing = false
         self.presentViewController(imagePickerController, animated: true, completion: nil)
-        
+        self.recognizeImage(myImage)
     }
 
 
@@ -52,13 +58,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
         :returns: A String object containing the processed text.
     */
-    func recognizeImage() -> String {
+    func recognizeImage(image: UIImage) -> String {
         println("Started to recognize text")
         let tesseract = Tesseract(language: "eng+ita")
-        tesseract.image = myImage.grayScale()
+        tesseract.image = image.grayScale()
         tesseract.recognize()
-        println(tesseract.recognizedText)
         textLabel.text = tesseract.recognizedText
+        
+        //if (delegate != nil) {
+            delegate!.receiptWasScannedAndRead(textLabel.text!, date: NSDate())
+        //}
         return textLabel.text!
     }
     
@@ -69,7 +78,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         doNothing(12, bar: "World")
         
         
-        self.recognizeImage()
+    
     
         
         

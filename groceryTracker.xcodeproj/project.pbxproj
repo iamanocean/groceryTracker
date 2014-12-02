@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		BE111E2A19FDC55F003E2088 /* IMG_0240.JPG in Resources */ = {isa = PBXBuildFile; fileRef = BE111E2919FDC55F003E2088 /* IMG_0240.JPG */; };
+		BE269D4C1A2A9F6300A52ECD /* receipt.gif in Resources */ = {isa = PBXBuildFile; fileRef = BE269D4B1A2A9F6300A52ECD /* receipt.gif */; };
+		BE269D851A2AA26300A52ECD /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE269D841A2AA26300A52ECD /* MasterViewController.swift */; };
+		BE8F3A7C1A2C0FE20024D366 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8F3A7B1A2C0FE20024D366 /* CoreData.framework */; };
 		BEB1640F19CFAF2C00A1F3CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB1640E19CFAF2C00A1F3CB /* AppDelegate.swift */; };
 		BEB1641119CFAF2C00A1F3CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB1641019CFAF2C00A1F3CB /* ViewController.swift */; };
 		BEB1641419CFAF2C00A1F3CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEB1641219CFAF2C00A1F3CB /* Main.storyboard */; };
@@ -32,6 +35,9 @@
 
 /* Begin PBXFileReference section */
 		BE111E2919FDC55F003E2088 /* IMG_0240.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0240.JPG; sourceTree = "<group>"; };
+		BE269D4B1A2A9F6300A52ECD /* receipt.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = receipt.gif; sourceTree = "<group>"; };
+		BE269D841A2AA26300A52ECD /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		BE8F3A7B1A2C0FE20024D366 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		BEB1640919CFAF2C00A1F3CB /* groceryTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = groceryTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB1640D19CFAF2C00A1F3CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEB1640E19CFAF2C00A1F3CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE8F3A7C1A2C0FE20024D366 /* CoreData.framework in Frameworks */,
 				BECAC05219D7B49A00862F2A /* CoreImage.framework in Frameworks */,
 				BECAC04E19D7B44900862F2A /* TesseractOCR.framework in Frameworks */,
 				BECAC04C19D7B41700862F2A /* libstdc++.6.0.9.dylib in Frameworks */,
@@ -73,6 +80,7 @@
 		BEB1640019CFAF2B00A1F3CB = {
 			isa = PBXGroup;
 			children = (
+				BE8F3A7B1A2C0FE20024D366 /* CoreData.framework */,
 				BECAC05119D7B49A00862F2A /* CoreImage.framework */,
 				BECAC04F19D7B48B00862F2A /* tessdata */,
 				BECAC04D19D7B44900862F2A /* TesseractOCR.framework */,
@@ -97,7 +105,9 @@
 			isa = PBXGroup;
 			children = (
 				BE111E2919FDC55F003E2088 /* IMG_0240.JPG */,
+				BE269D4B1A2A9F6300A52ECD /* receipt.gif */,
 				BEB1640E19CFAF2C00A1F3CB /* AppDelegate.swift */,
+				BE269D841A2AA26300A52ECD /* MasterViewController.swift */,
 				BEB1641019CFAF2C00A1F3CB /* ViewController.swift */,
 				BEB1641219CFAF2C00A1F3CB /* Main.storyboard */,
 				BEB1641519CFAF2C00A1F3CB /* Images.xcassets */,
@@ -214,6 +224,7 @@
 			files = (
 				BEB1641419CFAF2C00A1F3CB /* Main.storyboard in Resources */,
 				BECAC05019D7B48B00862F2A /* tessdata in Resources */,
+				BE269D4C1A2A9F6300A52ECD /* receipt.gif in Resources */,
 				BEB1641919CFAF2C00A1F3CB /* LaunchScreen.xib in Resources */,
 				BE111E2A19FDC55F003E2088 /* IMG_0240.JPG in Resources */,
 				BEB1641619CFAF2C00A1F3CB /* Images.xcassets in Resources */,
@@ -236,6 +247,7 @@
 			files = (
 				BEB1641119CFAF2C00A1F3CB /* ViewController.swift in Sources */,
 				BEB1640F19CFAF2C00A1F3CB /* AppDelegate.swift in Sources */,
+				BE269D851A2AA26300A52ECD /* MasterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
