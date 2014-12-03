@@ -20,9 +20,9 @@
 		BE4F4D101A2E3D860042C775 /* ImageRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F4D0F1A2E3D860042C775 /* ImageRecognitionViewController.swift */; };
 		BE4F4D121A2E42880042C775 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F4D111A2E42880042C775 /* Event.swift */; };
 		BE66F1641A2D4D3800ACFEB8 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BE66F1631A2D4D3800ACFEB8 /* libstdc++.6.0.9.dylib */; };
-		BE66F1661A2D4DAB00ACFEB8 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = BE66F1651A2D4DAB00ACFEB8 /* tessdata */; };
 		BE66F16B1A2D504600ACFEB8 /* GroceryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE66F16A1A2D504600ACFEB8 /* GroceryList.swift */; };
 		BE66F16D1A2D504600ACFEB8 /* GroceryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE66F16C1A2D504600ACFEB8 /* GroceryItem.swift */; };
+		BE7CAC091A2F92E000CDCB91 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = BE7CAC081A2F92E000CDCB91 /* tessdata */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,9 +54,9 @@
 		BE4F4D0F1A2E3D860042C775 /* ImageRecognitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRecognitionViewController.swift; sourceTree = "<group>"; };
 		BE4F4D111A2E42880042C775 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		BE66F1631A2D4D3800ACFEB8 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
-		BE66F1651A2D4DAB00ACFEB8 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tessdata; path = ../groceryTracker/tessdata; sourceTree = "<group>"; };
 		BE66F16A1A2D504600ACFEB8 /* GroceryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryList.swift; sourceTree = "<group>"; };
 		BE66F16C1A2D504600ACFEB8 /* GroceryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryItem.swift; sourceTree = "<group>"; };
+		BE7CAC081A2F92E000CDCB91 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +82,7 @@
 		BE2DFF6A1A2D40A700056E0B = {
 			isa = PBXGroup;
 			children = (
+				BE7CAC081A2F92E000CDCB91 /* tessdata */,
 				BE66F1691A2D4E8B00ACFEB8 /* OCRFiles */,
 				BE2DFF751A2D40A700056E0B /* Third */,
 				BE2DFF901A2D40A700056E0B /* ThirdTests */,
@@ -149,7 +150,6 @@
 				BE66F1631A2D4D3800ACFEB8 /* libstdc++.6.0.9.dylib */,
 				BE2DFFA81A2D413900056E0B /* Third-Bridging-Header.h */,
 				BE2DFF9D1A2D410900056E0B /* TesseractOCR.framework */,
-				BE66F1651A2D4DAB00ACFEB8 /* tessdata */,
 			);
 			name = OCRFiles;
 			sourceTree = "<group>";
@@ -236,7 +236,7 @@
 			files = (
 				BE2DFFAC1A2D4A6300056E0B /* customer receipt.jpg in Resources */,
 				BE2DFF831A2D40A700056E0B /* Main.storyboard in Resources */,
-				BE66F1661A2D4DAB00ACFEB8 /* tessdata in Resources */,
+				BE7CAC091A2F92E000CDCB91 /* tessdata in Resources */,
 				BE2DFF881A2D40A700056E0B /* LaunchScreen.xib in Resources */,
 				BE2DFF851A2D40A700056E0B /* Images.xcassets in Resources */,
 			);
