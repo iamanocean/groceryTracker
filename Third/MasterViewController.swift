@@ -31,7 +31,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         tesseract.image = UIImage(named: "customer receipt.jpg")
         tesseract.recognize()
         println(tesseract.recognizedText)
-        println("Hello World")
     }
 
     override func didReceiveMemoryWarning() {
@@ -109,7 +108,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
         let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
-        cell.textLabel.text = object.valueForKey("timeStamp")!.description
+        cell.textLabel?.text = object.valueForKey("timeStamp")!.description
     }
 
     // MARK: - Fetched results controller

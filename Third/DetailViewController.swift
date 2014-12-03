@@ -17,7 +17,6 @@ class DetailViewController: UIViewController {
         didSet {
             // Update the view.
             self.configureView()
-            println("Hello World")
         }
     }
 
