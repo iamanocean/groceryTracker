@@ -6,6 +6,20 @@
 //  Copyright (c) 2014 Luis Olivas. All rights reserved.
 //
 
+
+
+
+
+
+
+/*Bebas Neue
+BebasNeueBook
+BebasNeueLight
+BebasNeueBold
+BebasNeue-Thin
+BebasNeueRegular
+*/
+
 import UIKit
 import CoreData
 
@@ -15,6 +29,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     func receiptWasCapturedAndRecognized(readText: String) -> String {
         unprocessedString = readText
+        println("I've been doing things!")
         return readText
     }
 
@@ -25,37 +40,20 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
-
-        let tesseract: Tesseract = Tesseract(language: "eng+ita");
-        tesseract.image = UIImage(named: "customer receipt.jpg")
-        tesseract.recognize()
-        println(tesseract.recognizedText)
+        //view.tintColor = UIColor.greenColor()
+        let font = UIFont(name: "BebasNeueBold", size: 30)
+        if let font = font {
+            navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : font, NSForegroundColorAttributeName : UIColor.blackColor()]
+            
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    func insertNewObject(sender: AnyObject) {
-        
-        let context = self.fetchedResultsController.managedObjectContext
-        let entity = self.fetchedResultsController.fetchRequest.entity!
-        let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context) as NSManagedObject
-             
-        // If appropriate, configure the new managed object.
-        // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-        newManagedObject.setValue(NSDate(), forKey: "timeStamp")
-             
-        // Save the context.
-        var error: NSError? = nil
-        if !context.save(&error) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            //println("Unresolved error \(error), \(error.userInfo)")
-            abort()
-        }
     }
 
     // MARK: - Segues
@@ -104,6 +102,28 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                 abort()
             }
         }
+    }
+    
+    @IBAction func unwindToMaster(segue: UIStoryboardSegue) {
+        
+        let context = self.fetchedResultsController.managedObjectContext
+        let entity = self.fetchedResultsController.fetchRequest.entity!
+        let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context) as NSManagedObject
+        
+        // If appropriate, configure the new managed object.
+        // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
+        newManagedObject.setValue(NSDate(),forKey: "timeStamp")
+
+        
+        // Save the context.
+        var error: NSError? = nil
+        if !context.save(&error) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            //println("Unresolved error \(error), \(error.userInfo)")
+            abort()
+        }
+
     }
 
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {

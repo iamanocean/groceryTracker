@@ -20,6 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = self.window!.rootViewController as UINavigationController
         let controller = navigationController.topViewController as MasterViewController
         controller.managedObjectContext = self.managedObjectContext
+        
+      //  navigationController?.navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSFontAttributeName : font, NSForegroundColorAttributeName : UIColor.blackColor()], forState: UIControlState.Normal)
+        
+        let font = UIFont(name: "BebasNeueRegular", size: 24)
+        if let font = font {
+            UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName : font], forState: UIControlState.Normal)
+            
+        }
         return true
     }
 

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C68m" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rS3-R9-Ivy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C68m" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rS3-R9-Ivy">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Master-->
@@ -56,7 +57,7 @@
                             <outlet property="delegate" destination="pGg-6v-bdr" id="Y6K-Cp-Qkv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="tQt-TN-PWz">
+                    <navigationItem key="navigationItem" title="Groceries" id="tQt-TN-PWz">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="bTF-Iy-csI">
                             <connections>
                                 <segue destination="L0m-0h-98d" kind="show" identifier="addImage" id="71G-xP-8cf"/>
@@ -80,17 +81,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJt-9g-Wh1">
-                                <rect key="frame" x="230" y="329" width="141" height="30"/>
-                                <state key="normal" title="Select From Camera">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didRequestCamera:" destination="L0m-0h-98d" eventType="touchUpInside" id="KV8-Za-DQW"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2S-BA-4XM">
-                                <rect key="frame" x="237" y="380" width="127" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2S-BA-4XM">
+                                <rect key="frame" x="237" y="501" width="127" height="30"/>
                                 <state key="normal" title="Use Default Image">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -98,11 +90,59 @@
                                     <action selector="didRequestCameraRollImage:" destination="L0m-0h-98d" eventType="touchUpInside" id="ZcS-WT-p3n"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJt-9g-Wh1">
+                                <rect key="frame" x="230" y="448" width="141" height="30"/>
+                                <state key="normal" title="Select From Camera">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didRequestCamera:" destination="L0m-0h-98d" eventType="touchUpInside" id="KV8-Za-DQW"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" preferredMaxLayoutWidth="383" translatesAutoresizingMaskIntoConstraints="NO" id="pv4-W7-2ZA">
+                                <rect key="frame" x="118" y="126" width="376" height="295"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="376" id="bhL-dw-NvD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Uu-Hm-v4M">
+                                <rect key="frame" x="280" y="473" width="41" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Uts-yu-rLc"/>
+                                </constraints>
+                                <state key="normal" title="Done!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="LTq-e0-cVc" kind="unwind" unwindAction="unwindToMaster:" id="Ppn-U0-1Z8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pv4-W7-2ZA" firstAttribute="top" secondItem="Dxd-rw-TEY" secondAttribute="bottom" constant="62" id="48X-Aa-Wjw"/>
+                            <constraint firstItem="o2S-BA-4XM" firstAttribute="centerX" secondItem="sON-Zm-cpe" secondAttribute="centerX" id="4cj-VD-6QY"/>
+                            <constraint firstItem="1Uu-Hm-v4M" firstAttribute="top" secondItem="pv4-W7-2ZA" secondAttribute="bottom" constant="52" id="FRk-bY-04T"/>
+                            <constraint firstItem="o2S-BA-4XM" firstAttribute="centerX" secondItem="1Uu-Hm-v4M" secondAttribute="centerX" id="X33-gS-ehE"/>
+                            <constraint firstItem="o2S-BA-4XM" firstAttribute="top" secondItem="LJt-9g-Wh1" secondAttribute="bottom" constant="23" id="XbE-0O-p7w"/>
+                            <constraint firstItem="MbF-So-qru" firstAttribute="top" secondItem="1Uu-Hm-v4M" secondAttribute="bottom" constant="97" id="beA-N7-RRD"/>
+                            <constraint firstItem="LJt-9g-Wh1" firstAttribute="centerX" secondItem="1Uu-Hm-v4M" secondAttribute="centerX" id="egY-mC-CJT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pv4-W7-2ZA" secondAttribute="trailing" constant="90" id="hWb-gV-gpX"/>
+                            <constraint firstItem="LJt-9g-Wh1" firstAttribute="top" secondItem="pv4-W7-2ZA" secondAttribute="bottom" constant="27" id="mOX-61-UqI"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="doneButton" destination="1Uu-Hm-v4M" id="0d3-XN-lul"/>
+                        <outlet property="selectFromCameraButton" destination="LJt-9g-Wh1" id="f9R-qA-A7Z"/>
+                        <outlet property="selectFromCameraRollButton" destination="o2S-BA-4XM" id="goI-fe-7TK"/>
+                        <outlet property="textLabel" destination="pv4-W7-2ZA" id="A00-xJ-wFK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="osJ-MA-X0a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="LTq-e0-cVc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1268" y="-731"/>
         </scene>

@@ -40,6 +40,14 @@
 			<false/>
 		</dict>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>BebasNeue Regular.otf</string>
+		<string>BebasNeue Light.otf</string>
+		<string>BebasNeue Book.otf</string>
+		<string>BebasNeue Bold.otf</string>
+		<string>BebasNeue Thin.otf</string>
+	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
