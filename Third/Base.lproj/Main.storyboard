@@ -100,20 +100,27 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" preferredMaxLayoutWidth="383" translatesAutoresizingMaskIntoConstraints="NO" id="pv4-W7-2ZA">
-                                <rect key="frame" x="118" y="126" width="376" height="295"/>
+                                <rect key="frame" x="36" y="126" width="528" height="295"/>
+                                <color key="backgroundColor" red="0.83137255909999996" green="0.89803922179999995" blue="0.69411766529999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="376" id="bhL-dw-NvD"/>
+                                    <constraint firstAttribute="height" constant="295" id="61p-Rx-HWu"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="500" id="gFZ-5E-EK6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="gFZ-5E-EK6"/>
+                                    </mask>
+                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Uu-Hm-v4M">
-                                <rect key="frame" x="280" y="473" width="41" height="30"/>
+                                <rect key="frame" x="234" y="473" width="133" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Uts-yu-rLc"/>
                                 </constraints>
-                                <state key="normal" title="Done!">
+                                <state key="normal" title="Add Grocery Items!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -123,15 +130,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="pv4-W7-2ZA" firstAttribute="top" secondItem="Dxd-rw-TEY" secondAttribute="bottom" constant="62" id="48X-Aa-Wjw"/>
                             <constraint firstItem="o2S-BA-4XM" firstAttribute="centerX" secondItem="sON-Zm-cpe" secondAttribute="centerX" id="4cj-VD-6QY"/>
-                            <constraint firstItem="1Uu-Hm-v4M" firstAttribute="top" secondItem="pv4-W7-2ZA" secondAttribute="bottom" constant="52" id="FRk-bY-04T"/>
+                            <constraint firstItem="LJt-9g-Wh1" firstAttribute="top" secondItem="pv4-W7-2ZA" secondAttribute="bottom" constant="27" id="C6E-C5-4Dr"/>
+                            <constraint firstAttribute="centerY" secondItem="pv4-W7-2ZA" secondAttribute="centerY" constant="26.5" id="RKS-4R-nvH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pv4-W7-2ZA" secondAttribute="trailing" constant="20" id="TNV-iG-oym"/>
+                            <constraint firstItem="pv4-W7-2ZA" firstAttribute="leading" secondItem="sON-Zm-cpe" secondAttribute="leadingMargin" constant="20" id="WRl-85-xKo"/>
                             <constraint firstItem="o2S-BA-4XM" firstAttribute="centerX" secondItem="1Uu-Hm-v4M" secondAttribute="centerX" id="X33-gS-ehE"/>
                             <constraint firstItem="o2S-BA-4XM" firstAttribute="top" secondItem="LJt-9g-Wh1" secondAttribute="bottom" constant="23" id="XbE-0O-p7w"/>
                             <constraint firstItem="MbF-So-qru" firstAttribute="top" secondItem="1Uu-Hm-v4M" secondAttribute="bottom" constant="97" id="beA-N7-RRD"/>
                             <constraint firstItem="LJt-9g-Wh1" firstAttribute="centerX" secondItem="1Uu-Hm-v4M" secondAttribute="centerX" id="egY-mC-CJT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="pv4-W7-2ZA" secondAttribute="trailing" constant="90" id="hWb-gV-gpX"/>
-                            <constraint firstItem="LJt-9g-Wh1" firstAttribute="top" secondItem="pv4-W7-2ZA" secondAttribute="bottom" constant="27" id="mOX-61-UqI"/>
+                            <constraint firstItem="pv4-W7-2ZA" firstAttribute="top" secondItem="Dxd-rw-TEY" secondAttribute="bottom" constant="62" id="mTp-dl-y0n"/>
                         </constraints>
                     </view>
                     <connections>

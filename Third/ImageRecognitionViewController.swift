@@ -16,13 +16,15 @@ class ImageRecognitionViewController: UIViewController, UIImagePickerControllerD
         super.viewDidLoad()
         doneButton.hidden = true
         
-        let font = UIFont(name: "BebasNeueBold", size: 30)
+        let font = UIFont(name: "BebasNeueBook", size: 30)
         if let font = font {
             textLabel.font = font
             doneButton.titleLabel?.font = font
             selectFromCameraButton.titleLabel?.font = font
             selectFromCameraRollButton.titleLabel?.font = font
         }
+        
+        textLabel.text = "Scan a receipt!"
     }
     
     ///ToDo Error check me
