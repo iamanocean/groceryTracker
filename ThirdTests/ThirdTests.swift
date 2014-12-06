@@ -9,14 +9,14 @@
 import UIKit
 import XCTest
 
-/*!
- * @brief This is the file of test cases and is invoked to test the app.
+/**
+ * :brief: This is the file of test cases and is invoked to test the app.
 */
 
 class ThirdTests: XCTestCase {
     
-    /*!
-     * @brief called before invocation of each test method in the class.
+    /**
+     * :brief: called before invocation of each test method in the class.
     */
     
     override func setUp() {
@@ -24,8 +24,8 @@ class ThirdTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
-    /*!
-     * @brief Teardown code, called after the invocation of each test method in the class.
+    /**
+     * :brief: Teardown code, called after the invocation of each test method in the class.
     */
     
     override func tearDown() {
@@ -33,8 +33,8 @@ class ThirdTests: XCTestCase {
         super.tearDown()
     }
     
-    /*!
-     * @brief Functional test case.
+    /**
+     * :brief: Functional test case.
     */
     
     func testExample() {
@@ -42,8 +42,8 @@ class ThirdTests: XCTestCase {
         XCTAssert(true, "Pass")
     }
     
-    /*!
-     * @brief Performance test case. Measures time, amongst other performance tests.
+    /**
+     * :brief: Performance test case. Measures time, amongst other performance tests.
     */
     
     func testPerformanceExample() {

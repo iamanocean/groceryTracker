@@ -9,8 +9,8 @@
 import Foundation
 import CoreData
 
-/*!
- * @brief Event class. It assigns the variable "timeStamp" to the current system date & time.
+/**
+ * :brief: Event class. It assigns the variable "timeStamp" to the current system date & time.
 */
 
 class Event: NSManagedObject {

@@ -9,8 +9,8 @@ protocol recognizedDataDelegate {
     func receiptWasCapturedAndRecognized(readText: String) -> String
 }
 
-/*!
- * @brief This is the class to provide the user with an interface for scanning their\n
+/**
+ * :brief: This is the class to provide the user with an interface for scanning their\n
  * receipts. The app sets the default viewing font, brings up a camera view, and prompts\n
  * the user to "scan a receipt!"\n
 */
@@ -66,10 +66,10 @@ class ImageRecognitionViewController: UIViewController, UIImagePickerControllerD
         doneButton.hidden = false
     }
     
-    /*!
-     * @brief Tesseract's OCR function.
-     * @param UIImage This is the image that gets passed into the OCR function.
-     * @return The text as perceived by Tesseract Optical Character Recognition.
+    /**
+     * :brief: Tesseract's OCR function.
+     * :param: UIImage This is the image that gets passed into the OCR function.
+     * :returns: The text as perceived by Tesseract Optical Character Recognition.
     */
 
     func recognize(image: UIImage) -> String {

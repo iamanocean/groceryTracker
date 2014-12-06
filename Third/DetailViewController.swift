@@ -20,8 +20,8 @@ class DetailViewController: UIViewController {
         }
     }
     
-    /*!
-     * @brief Updates the user interface for the detail item.
+    /**
+     * :brief: Updates the user interface for the detail item.
     */
 
     func configureView() {
@@ -32,8 +32,8 @@ class DetailViewController: UIViewController {
         }
     }
 
-    /*!
-     * @brief Does any additional setup after loading the view, typically from a nib.
+    /**
+     * :brief: Does any additional setup after loading the view, typically from a nib.
     */
     
     override func viewDidLoad() {
@@ -41,8 +41,8 @@ class DetailViewController: UIViewController {
         self.configureView()
     }
 
-    /*!
-     * @brief Disposes of any resources that can be recreated.
+    /**
+     * :brief: Disposes of any resources that can be recreated.
     */
     
     override func didReceiveMemoryWarning() {

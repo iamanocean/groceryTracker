@@ -34,10 +34,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     var managedObjectContext: NSManagedObjectContext? = nil
     
     
-    /*!
-     * @brief Method for ensuring capture of the receipt and returning the read text.
-     * @param readText readText is the OCR'd text from the receipt.
-     * @return The recognized text.
+    /**
+     * :brief: Method for ensuring capture of the receipt and returning the read text.
+     * :param: readText readText is the OCR'd text from the receipt.
+     * :return: The recognized text.
     */
     
     func receiptWasCapturedAndRecognized(readText: String) -> String {
@@ -82,16 +82,16 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     // MARK: - Table View
     
-    /*!
-     * @brief Returns the number of sections in the UI Table View.
+    /**
+     * :brief: Returns the number of sections in the UI Table View.
     */
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.fetchedResultsController.sections?.count ?? 0
     }
     
-    /*!
-     * @brief Returns the number of rows in each section of the Table View.
+    /**
+     * :brief: Returns the number of rows in each section of the Table View.
     */
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -100,7 +100,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
     
     /*!
-     * @brief Returns the cell at the given index path.
+     * :brief: Returns the cell at the given index path.
     */
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -109,8 +109,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         return cell
     }
     
-    /*!
-     * @return If returning true, the specified item in the table is editable. If false, the item is not editable.
+    /**
+     * :return: If returning true, the specified item in the table is editable. If false, the item is not editable.
     */
 
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
