@@ -19,9 +19,12 @@ class DetailViewController: UIViewController {
             self.configureView()
         }
     }
+    
+    /*!
+     * @brief Updates the user interface for the detail item.
+    */
 
     func configureView() {
-        // Update the user interface for the detail item.
         if let detail: AnyObject = self.detailItem {
             if let label = self.detailDescriptionLabel {
                 label.text = detail.valueForKey("timeStamp")!.description
@@ -29,15 +32,21 @@ class DetailViewController: UIViewController {
         }
     }
 
+    /*!
+     * @brief Does any additional setup after loading the view, typically from a nib.
+    */
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
     }
 
+    /*!
+     * @brief Disposes of any resources that can be recreated.
+    */
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 

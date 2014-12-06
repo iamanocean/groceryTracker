@@ -9,6 +9,12 @@
 import Foundation
 import CoreData
 
+/*! 
+ * @brief GroceryList object creation.
+ * @param numberOfItems Number of grocery items.
+ * @param groceryItem An instance of the groceryItem class
+*/
+
 class GroceryList: NSManagedObject {
 
     @NSManaged var numberOfItems: NSNumber

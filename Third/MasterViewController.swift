@@ -22,7 +22,7 @@ BebasNeueRegular
 
 /** @mainpage
  ** @author Luis Olivas, Neil Nistler, Pradyumna Kikkeri
- * This is the MasterViewController and contains the TableView and
+ * This is the MasterViewController and contains the TableView, viewing, and
  * parsing functions for the OCR.
  */
 
@@ -81,21 +81,37 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     // MARK: - Table View
+    
+    /*!
+     * @brief Returns the number of sections in the UI Table View.
+    */
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.fetchedResultsController.sections?.count ?? 0
     }
+    
+    /*!
+     * @brief Returns the number of rows in each section of the Table View.
+    */
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = self.fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo
         return sectionInfo.numberOfObjects
     }
+    
+    /*!
+     * @brief Returns the cell at the given index path.
+    */
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
         self.configureCell(cell, atIndexPath: indexPath)
         return cell
     }
+    
+    /*!
+     * @return If returning true, the specified item in the table is editable. If false, the item is not editable.
+    */
 
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
