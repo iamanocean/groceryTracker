@@ -20,13 +20,26 @@ BebasNeue-Thin
 BebasNeueRegular
 */
 
+/** @mainpage
+ ** @author Luis Olivas, Neil Nistler, Pradyumna Kikkeri
+ * This is the MasterViewController and contains the TableView and
+ * parsing functions for the OCR.
+ */
+
 import UIKit
 import CoreData
 
 class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate, recognizedDataDelegate {
     var unprocessedString: String?
     var managedObjectContext: NSManagedObjectContext? = nil
-
+    
+    
+    /*!
+     * @brief Method for ensuring capture of the receipt and returning the read text.
+     * @param readText readText is the OCR'd text from the receipt.
+     * @return The recognized text.
+    */
+    
     func receiptWasCapturedAndRecognized(readText: String) -> String {
         unprocessedString = readText
         println("I've been doing things!")
