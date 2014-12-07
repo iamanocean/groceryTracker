@@ -243,39 +243,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
      }
      */
     
-    /* Ignore me
-    + (UIImage *) doBinarize:(UIImage *)sourceImage
-    {
-    //first off, try to grayscale the image using iOS core Image routine
-    UIImage * grayScaledImg = [self grayImage:sourceImage];
-    GPUImagePicture *imageSource = [[GPUImagePicture alloc] initWithImage:grayScaledImg];
-    GPUImageAdaptiveThresholdFilter *stillImageFilter = [[GPUImageAdaptiveThresholdFilter alloc] init];
-    stillImageFilter.blurSize = 8.0;
     
-    [imageSource addTarget:stillImageFilter];
-    [imageSource processImage];
-    
-    UIImage *retImage = [stillImageFilter imageFromCurrentlyProcessedOutput];
-    return retImage;
-    }
-    
-    + (UIImage *) grayImage :(UIImage *)inputImage
-    {
-    // Create a graphic context.
-    UIGraphicsBeginImageContextWithOptions(inputImage.size, NO, 1.0);
-    CGRect imageRect = CGRectMake(0, 0, inputImage.size.width, inputImage.size.height);
-    
-    // Draw the image with the luminosity blend mode.
-    // On top of a white background, this will give a black and white image.
-    [inputImage drawInRect:imageRect blendMode:kCGBlendModeLuminosity alpha:1.0];
-    
-    // Get the resulting image.
-    UIImage *outputImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return outputImage;
-    }
-    */
-
 }
 

@@ -5,6 +5,9 @@
 //  Created by Luis Olivas on 12/2/14.
 //  Copyright (c) 2014 Luis Olivas. All rights reserved.
 //
+
+import GPUImage
+
 protocol recognizedDataDelegate {
     func receiptWasCapturedAndRecognized(readText: String) -> String
 }
@@ -33,7 +36,7 @@ class ImageRecognitionViewController: UIViewController, UIImagePickerControllerD
     }
     
     ///ToDo Error check me
-    let defaultImage: UIImage = UIImage(named: "customer receipt.jpg")!
+    let defaultImage: UIImage = UIImage(named: "ReceiptSwiss.jpg")!
     let cameraImage: UIImage?
     let delegate: recognizedDataDelegate? = nil
     
@@ -73,8 +76,60 @@ class ImageRecognitionViewController: UIViewController, UIImagePickerControllerD
     */
 
     func recognize(image: UIImage) -> String {
+        
+        func binarize(sourceImage: UIImage) -> UIImage {
+            let grayscaleImage: UIImage = sourceImage.grayScale()
+            let imageSource: GPUImagePicture = GPUImagePicture(image: grayscaleImage)
+            let stillImagefilter: GPUImageAdaptiveThresholdFilter = GPUImageAdaptiveThresholdFilter()
+            stillImagefilter.blurRadiusInPixels = 8.0
+         
+            imageSource.addTarget(stillImagefilter)
+            imageSource.processImage()
+            
+            let returnImage: UIImage = stillImagefilter.imageFromCurrentFramebuffer();
+            return returnImage
+        }
+        
+        func grayImage(inputImage: UIImage) -> UIImage {
+            UIGraphicsBeginImageContextWithOptions(inputImage.size, false, 1.0)
+            let imageRectangle: CGRect = CGRectMake(0, 0, inputImage.size.width, inputImage.size.height)
+            inputImage.drawInRect(imageRectangle, blendMode: kCGBlendModeLuminosity, alpha: 1.0)
+            
+            
+            let outputImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            return outputImage
+        }
+        
+        
+        /* Ignore me
+        stillImageFilter.blurSize = 8.0;
+        [imageSource addTarget:stillImageFilter];
+        UIImage *retImage = [stillImageFilter imageFromCurrentlyProcessedOutput];
+        return retImage;}
+        
+        + (UIImage *) grayImage :(UIImage *)inputImage
+        {
+        // Create a graphic context.
+        CGRect imageRect = CGRectMake(0, 0, inputImage.size.width, inputImage.size.height);
+        
+        // Draw the image with the luminosity blend mode.
+        // On top of a white background, this will give a black and white image.
+        [inputImage drawInRect:imageRect blendMode:kCGBlendModeLuminosity alpha:1.0];
+        
+        // Get the resulting image.
+        UIImage *outputImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        return outputImage;
+        }
+        */
+
+       
+        
         let tesseract = Tesseract(language: "eng+ita")
-        tesseract.image = image.grayScale()
+        tesseract.image = image
         tesseract.recognize()
         
         textLabel.numberOfLines = 30
