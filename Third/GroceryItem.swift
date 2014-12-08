@@ -17,7 +17,7 @@ import CoreData
  * :param: isOut Is the item out?
  * :param: groceryList An instance of the GroceryList class.
 */
-
+@objc(GroceryItem)
 class GroceryItem: NSManagedObject {
 
     @NSManaged var name: String

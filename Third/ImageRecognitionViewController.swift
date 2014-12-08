@@ -36,9 +36,9 @@ class ImageRecognitionViewController: UIViewController, UIImagePickerControllerD
     }
     
     ///ToDo Error check me
-    let defaultImage: UIImage = UIImage(named: "ReceiptSwiss.jpg")!
+    let defaultImage: UIImage = UIImage(named: "belated-receipt.jpeg")!
     let cameraImage: UIImage?
-    let delegate: recognizedDataDelegate? = nil
+    var delegate: recognizedDataDelegate? = nil
     
     @IBOutlet var selectFromCameraButton: UIButton!
     @IBOutlet var selectFromCameraRollButton: UIButton!
@@ -63,7 +63,11 @@ class ImageRecognitionViewController: UIViewController, UIImagePickerControllerD
     }
     
     @IBAction func didRequestCameraRollImage(sender: AnyObject) {
-        println("\(recognize(defaultImage)) Hello World")
+//        println("\(recognize(defaultImage)) Hello World")
+        let recognizedText = recognize(defaultImage)
+        if delegate != nil {
+            delegate!.receiptWasCapturedAndRecognized(recognizedText)
+        }
         selectFromCameraButton.hidden = true
         selectFromCameraRollButton.hidden = true
         doneButton.hidden = false
@@ -86,7 +90,8 @@ class ImageRecognitionViewController: UIViewController, UIImagePickerControllerD
             imageSource.addTarget(stillImagefilter)
             imageSource.processImage()
             
-            let returnImage: UIImage = stillImagefilter.imageFromCurrentFramebuffer();
+            let returnImage: UIImage = stillImagefilter.imageByFilteringImage(image)
+            
             return returnImage
         }
         
@@ -101,7 +106,10 @@ class ImageRecognitionViewController: UIViewController, UIImagePickerControllerD
             
             return outputImage
         }
+
         
+        
+
         
         /* Ignore me
         stillImageFilter.blurSize = 8.0;
@@ -125,11 +133,11 @@ class ImageRecognitionViewController: UIViewController, UIImagePickerControllerD
         return outputImage;
         }
         */
-
+        
        
         
         let tesseract = Tesseract(language: "eng+ita")
-        tesseract.image = image
+        tesseract.image = image.grayScale()
         tesseract.recognize()
         
         textLabel.numberOfLines = 30

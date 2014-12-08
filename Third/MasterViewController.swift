@@ -8,10 +8,6 @@
 
 
 
-
-
-
-
 /*Bebas Neue
 BebasNeueBook
 BebasNeueLight
@@ -29,39 +25,53 @@ BebasNeueRegular
 import UIKit
 import CoreData
 
+struct groceryData {
+    var name: String
+    var cost: NSDecimalNumber
+    var datePurchased: NSDate
+    var isOut: NSNumber
+}
+
 class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate, recognizedDataDelegate {
-    var unprocessedString: String?
+
     var managedObjectContext: NSManagedObjectContext? = nil
+    var queueOfGroceries: [groceryData] = [groceryData(name: "Water", cost: 0.0, datePurchased: NSDate(), isOut: false)]
     
     
     /**
-     * :brief: Method for ensuring capture of the receipt and returning the read text.
-     * :param: readText readText is the OCR'd text from the receipt.
-     * :return: The recognized text.
+    :brief: Delegate method of recognizedDataDelegate protocol. Passes data to this view controller from ImageRecognitionViewController
+    :param: readText OCR text of a receipt
+    :return: The recognized text.
     */
-    
     func receiptWasCapturedAndRecognized(readText: String) -> String {
-        unprocessedString = readText
-        println("I've been doing things!")
+        parseInput(readText);
         return readText
     }
-
+    
+    /**
+    :brief: Presently just does magical things. Dumbledore would have a hard time understanding how it works
+    :param: text We're not even sure if it does anything with this
+    */
+    func parseInput(text:String) {
+        //Do magical things
+        let item: groceryData = groceryData(name: "Cheetos", cost: NSDecimalNumber(float: 3.98), datePurchased: NSDate(), isOut: false)
+        let otherItem: groceryData = groceryData(name: "Coca Cola", cost: NSDecimalNumber(float: 0.99), datePurchased: NSDate(), isOut: false)
+        queueOfGroceries.append(item)
+        queueOfGroceries.append(otherItem)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
-        //view.tintColor = UIColor.greenColor()
         let font = UIFont(name: "BebasNeueBold", size: 30)
         if let font = font {
             navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : font, NSForegroundColorAttributeName : UIColor.blackColor()]
-            
         }
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,9 +87,13 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
             (segue.destinationViewController as DetailViewController).detailItem = object
             }
+        } else if segue.identifier == "addImage" {
+            let secondViewController: ImageRecognitionViewController = segue.destinationViewController as ImageRecognitionViewController
+            secondViewController.delegate = self
         }
     }
 
+    
     // MARK: - Table View
     
     /**
@@ -133,31 +147,37 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         }
     }
     
-    @IBAction func unwindToMaster(segue: UIStoryboardSegue) {
-        
+    func addGroceryItemToDataBase(item: groceryData) -> () {
         let context = self.fetchedResultsController.managedObjectContext
         let entity = self.fetchedResultsController.fetchRequest.entity!
-        let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context) as NSManagedObject
+        let newManagedObject: GroceryItem = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context) as GroceryItem
         
-        // If appropriate, configure the new managed object.
-        // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-        newManagedObject.setValue(NSDate(),forKey: "timeStamp")
-
+        newManagedObject.name = item.name
+        newManagedObject.datePurchased = item.datePurchased
+        newManagedObject.cost = item.cost
+        newManagedObject.isOut = item.isOut
         
-        // Save the context.
         var error: NSError? = nil
         if !context.save(&error) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            //println("Unresolved error \(error), \(error.userInfo)")
             abort()
         }
-
+        
+    }
+    
+    
+    @IBAction func unwindToMaster(segue: UIStoryboardSegue) {
+       // let workToDo: Int =
+        
+        while !queueOfGroceries.isEmpty {
+            addGroceryItemToDataBase(queueOfGroceries.last!)
+            queueOfGroceries.removeLast()
+        }
     }
 
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
-        let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
-        cell.textLabel?.text = object.valueForKey("timeStamp")!.description
+        let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as GroceryItem
+        cell.textLabel?.text = object.name
+    
     }
 
     // MARK: - Fetched results controller
@@ -169,14 +189,14 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         let fetchRequest = NSFetchRequest()
         // Edit the entity name as appropriate.
-        let entity = NSEntityDescription.entityForName("Event", inManagedObjectContext: self.managedObjectContext!)
+        let entity = NSEntityDescription.entityForName("GroceryItem", inManagedObjectContext: self.managedObjectContext!)
         fetchRequest.entity = entity
         
         // Set the batch size to a suitable number.
         fetchRequest.fetchBatchSize = 20
         
         // Edit the sort key as appropriate.
-        let sortDescriptor = NSSortDescriptor(key: "timeStamp", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: false)
         let sortDescriptors = [sortDescriptor]
         
         fetchRequest.sortDescriptors = [sortDescriptor]
