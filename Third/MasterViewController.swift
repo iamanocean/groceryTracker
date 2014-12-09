@@ -89,6 +89,19 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             abort()
         }
     }
+    
+    
+Breaks code
+    
+    asldkfhja;lsdfj a;sdfj a;sf
+    asldkfhja;lsdfj a;sdfj a;sf
+    asldkfhja;lsdfj a;sdfj a;sf
+    asldkfhja;lsdfj a;sdfj a;sf
+
+    asldkfhja;lsdfj a;sdfj a;sf
+    asldkfhja;lsdfj a;sdfj a;sf
+    asldkfhja;lsdfj a;sdfj a;sf
+
     /**
     :brief: Delegate method of recognizedDataDelegate protocol. Passes data to this view controller from ImageRecognitionViewController
     :param: readText OCR text of a receipt
