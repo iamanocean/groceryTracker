@@ -1,0 +1,7 @@
+Third/ Contains all source code written for the project
+ThirdTests/ Contains unit tests for the project
+tessData/, build/, Third-Bridging-Header.h, are all files necssary for running the project including frameworks
+Third.xcodeproj will set up the entire project in Xcode when clicked
+docs/ contains auto-documentation for the project (click on index.html)
+
+To build project, open and run in Xcode

@@ -8,6 +8,7 @@
 
 import UIKit
 import XCTest
+import GPUImage
 
 extension String {
     /// Truncates the string to length number of characters and
@@ -24,7 +25,6 @@ extension String {
 * :brief: This is the file of test cases and is invoked to test the app.
 */
 class ThirdTests: XCTestCase {
-    
     /**
      * :brief: called before invocation of each test method in the class.
     */
@@ -35,6 +35,7 @@ class ThirdTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        println("App initialization successful")
 
     
     }
@@ -52,7 +53,7 @@ class ThirdTests: XCTestCase {
      * :brief: Functional test case.
     */
     
-    func testExample() {
+    func testSetup() {
         // This is an example of a functional test case.
         XCTAssert(true, "Pass")
     }
@@ -61,8 +62,14 @@ class ThirdTests: XCTestCase {
     func testTruncate() {
         
         XCTAssertEqual("Hello World".truncate(5, trailing: "..."), "Hello...")
+
     }
     
+    func testTruncateWithIndexGreaterThanStringLength() {
+        
+        XCTAssertEqual("Hello World".truncate(20, trailing: " "), "Hello World")
+    
+    }
     func testDateFormatting() {
 
         XCTAssertEqual(substringToProperDateFormat("2014-12-02 07:44:12 +0000"), "2014-12-02")
@@ -73,9 +80,24 @@ class ThirdTests: XCTestCase {
     */
     
     func testPerformanceExample() {
-        // This is an example of a performance test case.
         self.measureBlock() {
-            // Put the code you want to measure the time of here.
+        
+                func binarize(sourceImage: UIImage) -> UIImage {
+        
+                    let imageSource: GPUImagePicture = GPUImagePicture(image: sourceImage)
+                    let stillImagefilter: GPUImageAdaptiveThresholdFilter = GPUImageAdaptiveThresholdFilter()
+                    stillImagefilter.blurRadiusInPixels = 8.0
+                    
+                    imageSource.addTarget(stillImagefilter)
+                    imageSource.processImage()
+                    
+                    let returnImage: UIImage = stillImagefilter.imageByFilteringImage(sourceImage)
+                    
+                    return returnImage
+                }
+            
+            binarize(UIImage(named: "customer receipt.jpg")!)
+            
         }
     }
     

@@ -19,6 +19,7 @@
 		BE2DFFAC1A2D4A6300056E0B /* customer receipt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE2DFFAB1A2D4A6300056E0B /* customer receipt.jpg */; };
 		BE35A0DC1A365C2800D74E34 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE35A0DB1A365C2800D74E34 /* EventKit.framework */; };
 		BE3CEE091A33DF890021FE0E /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE3CEE061A33DF460021FE0E /* GPUImage.framework */; };
+		BE42211B1A36E9A300B379F7 /* README in Resources */ = {isa = PBXBuildFile; fileRef = BE42211A1A36E9A300B379F7 /* README */; };
 		BE4F4D101A2E3D860042C775 /* ImageRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F4D0F1A2E3D860042C775 /* ImageRecognitionViewController.swift */; };
 		BE66F1641A2D4D3800ACFEB8 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BE66F1631A2D4D3800ACFEB8 /* libstdc++.6.0.9.dylib */; };
 		BE66F16B1A2D504600ACFEB8 /* GroceryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE66F16A1A2D504600ACFEB8 /* GroceryList.swift */; };
@@ -81,6 +82,7 @@
 		BE2DFFAB1A2D4A6300056E0B /* customer receipt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "customer receipt.jpg"; sourceTree = "<group>"; };
 		BE35A0DB1A365C2800D74E34 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		BE3CEDFD1A33DF460021FE0E /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = "../../../../Desktop/GPUImage-master/framework/GPUImage.xcodeproj"; sourceTree = "<group>"; };
+		BE42211A1A36E9A300B379F7 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = SOURCE_ROOT; };
 		BE4F4D0F1A2E3D860042C775 /* ImageRecognitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRecognitionViewController.swift; sourceTree = "<group>"; };
 		BE66F1631A2D4D3800ACFEB8 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		BE66F16A1A2D504600ACFEB8 /* GroceryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryList.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				BE2DFF781A2D40A700056E0B /* AppDelegate.swift */,
+				BE42211A1A36E9A300B379F7 /* README */,
 				BE2DFF7D1A2D40A700056E0B /* MasterViewController.swift */,
 				BE2DFF7F1A2D40A700056E0B /* DetailViewController.swift */,
 				BE4F4D0F1A2E3D860042C775 /* ImageRecognitionViewController.swift */,
@@ -320,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEBD82D61A3035F70035EF23 /* BebasNeue Light.otf in Resources */,
+				BE42211B1A36E9A300B379F7 /* README in Resources */,
 				BE2DFFAC1A2D4A6300056E0B /* customer receipt.jpg in Resources */,
 				BEBD82D91A3035F70035EF23 /* BebasNeue Thin.otf in Resources */,
 				BE2DFF831A2D40A700056E0B /* Main.storyboard in Resources */,
