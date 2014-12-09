@@ -11,6 +11,7 @@
         <attribute name="datePurchased" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="isOut" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reminderDate" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="groceryList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GroceryList" inverseName="groceryItem" inverseEntity="GroceryList" syncable="YES"/>
     </entity>
     <entity name="GroceryList" representedClassName="GroceryList" syncable="YES">
@@ -19,7 +20,7 @@
     </entity>
     <elements>
         <element name="Event" positionX="243" positionY="129" width="128" height="60"/>
-        <element name="GroceryItem" positionX="-108" positionY="117" width="128" height="118"/>
+        <element name="GroceryItem" positionX="-108" positionY="117" width="128" height="133"/>
         <element name="GroceryList" positionX="169" positionY="-10" width="128" height="73"/>
     </elements>
 </model>

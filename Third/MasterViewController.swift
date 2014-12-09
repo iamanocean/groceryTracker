@@ -6,65 +6,56 @@
 //  Copyright (c) 2014 Luis Olivas. All rights reserved.
 //
 
+/** 
+:mainpage:
+:author: Luis Olivas, Neil Nistler, Pradyumna Kikkeri
 
-
-/*Bebas Neue
-BebasNeueBook
-BebasNeueLight
-BebasNeueBold
-BebasNeue-Thin
-BebasNeueRegular
+This is the MasterViewController and contains the TableView, viewing, and parsing functions for the OCR.
 */
-
-/** @mainpage
- ** @author Luis Olivas, Neil Nistler, Pradyumna Kikkeri
- * This is the MasterViewController and contains the TableView, viewing, and
- * parsing functions for the OCR.
- */
 
 import UIKit
 import CoreData
+
+/**
+:brief: Data structure used to hold the receiptItem
+- name: The name of the object
+- cost: How much the item cost represented as an NSDecimalNumber
+- datePurchased: The date the item was purchased as an NSDate
+- isOut: A boolean that is set to true when the user no longer has the item
+*/
 
 struct groceryData {
     var name: String
     var cost: NSDecimalNumber
     var datePurchased: NSDate
-    var isOut: NSNumber
+    var isOut: Bool
 }
 
-class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate, recognizedDataDelegate {
+/**
 
+:brief: The master view controller responsible for delegating the actions of the other view controllers and storing data to the database, as well as drawing the table view
+
+
+:member: managedObjectContext: Context for the CoreData delegate
+:member: queueOfGroceries: A queue of groceryData structs implemented as an NSArray
+
+*/
+
+class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate, recognizedDataDelegate {
+    
+    ///Context for the CoreData delegate
     var managedObjectContext: NSManagedObjectContext? = nil
+    ///A queue of groceryData structs implemented as an NSArray
     var queueOfGroceries: [groceryData] = [groceryData(name: "Water", cost: 0.0, datePurchased: NSDate(), isOut: false)]
     
-    
-    /**
-    :brief: Delegate method of recognizedDataDelegate protocol. Passes data to this view controller from ImageRecognitionViewController
-    :param: readText OCR text of a receipt
-    :return: The recognized text.
-    */
-    func receiptWasCapturedAndRecognized(readText: String) -> String {
-        parseInput(readText);
-        return readText
-    }
-    
-    /**
-    :brief: Presently just does magical things. Dumbledore would have a hard time understanding how it works
-    :param: text We're not even sure if it does anything with this
-    */
-    func parseInput(text:String) {
-        //Do magical things
-        let item: groceryData = groceryData(name: "Cheetos", cost: NSDecimalNumber(float: 3.98), datePurchased: NSDate(), isOut: false)
-        let otherItem: groceryData = groceryData(name: "Coca Cola", cost: NSDecimalNumber(float: 0.99), datePurchased: NSDate(), isOut: false)
-        queueOfGroceries.append(item)
-        queueOfGroceries.append(otherItem)
-    }
-    
+    // MARK: - Class initalization and setup
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    
+    /**
+    :brief: Overrides viewDidLoad from superclass UIView. Sets up Typography and adds an edit button
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
@@ -73,80 +64,16 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : font, NSForegroundColorAttributeName : UIColor.blackColor()]
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Segues
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow() {
-            let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
-            (segue.destinationViewController as DetailViewController).detailItem = object
-            }
-        } else if segue.identifier == "addImage" {
-            let secondViewController: ImageRecognitionViewController = segue.destinationViewController as ImageRecognitionViewController
-            secondViewController.delegate = self
-        }
-    }
-
     
-    // MARK: - Table View
-    
+    // Mark: - Data Methods
     /**
-     * :brief: Returns the number of sections in the UI Table View.
+    :brief: Adds receipt item to database
+    :param: item A struct of type groceryData that contains the item's information
     */
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.fetchedResultsController.sections?.count ?? 0
-    }
-    
-    /**
-     * :brief: Returns the number of rows in each section of the Table View.
-    */
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionInfo = self.fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo
-        return sectionInfo.numberOfObjects
-    }
-    
-    /*!
-     * :brief: Returns the cell at the given index path.
-    */
-
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
-        self.configureCell(cell, atIndexPath: indexPath)
-        return cell
-    }
-    
-    /**
-     * :return: If returning true, the specified item in the table is editable. If false, the item is not editable.
-    */
-
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            let context = self.fetchedResultsController.managedObjectContext
-            context.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject)
-                
-            var error: NSError? = nil
-            if !context.save(&error) {
-                // Replace this implementation with code to handle the error appropriately.
-                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                //println("Unresolved error \(error), \(error.userInfo)")
-                abort()
-            }
-        }
-    }
-    
     func addGroceryItemToDataBase(item: groceryData) -> () {
         let context = self.fetchedResultsController.managedObjectContext
         let entity = self.fetchedResultsController.fetchRequest.entity!
@@ -161,16 +88,102 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         if !context.save(&error) {
             abort()
         }
-        
+    }
+    /**
+    :brief: Delegate method of recognizedDataDelegate protocol. Passes data to this view controller from ImageRecognitionViewController
+    :param: readText OCR text of a receipt
+    :return: The recognized text.
+    */
+    func receiptWasCapturedAndRecognized(readText: String) -> String {
+        parseInput(readText);
+        return readText
     }
     
+    /**
+    :Description: Presently just does magical things. Dumbledore would have a hard time understanding how it works
+    :param: text We're not even sure if it does anything with this
+    */
+    func parseInput(text:String) {
+        //Do magical things
+        let burger: groceryData = groceryData(name: "Beef Burgr", cost: 9.95, datePurchased: NSDate(), isOut: false)
+        let BudLight: groceryData = groceryData(name: "Bud Light", cost: 3.79, datePurchased: NSDate(), isOut: false)
+        let bud: groceryData = groceryData(name: "Bud", cost: 4.50, datePurchased: NSDate(), isOut: false)
+        queueOfGroceries.append(burger)
+        queueOfGroceries.append(BudLight)
+        queueOfGroceries.append(bud)
+    }
+    // MARK: - Segues
+
+    /**
+    :brief: Overrides prepareForSegue method from UINavigationController superclass to pass infomration between view controllers
+    */
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showDetail" {
+            if let indexPath = self.tableView.indexPathForSelectedRow() {
+            let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
+            (segue.destinationViewController as DetailViewController).detailItem = object
+            }
+        } else if segue.identifier == "addImage" {
+            let secondViewController: ImageRecognitionViewController = segue.destinationViewController as ImageRecognitionViewController
+            secondViewController.delegate = self
+        }
+    }
     
+    /**
+    :brief: Custom segue that populates the master view controller with the grocery items from an OCR
+    */
     @IBAction func unwindToMaster(segue: UIStoryboardSegue) {
-       // let workToDo: Int =
-        
-        while !queueOfGroceries.isEmpty {
+        while queueOfGroceries.count > 1 {
             addGroceryItemToDataBase(queueOfGroceries.last!)
             queueOfGroceries.removeLast()
+        }
+    }
+    
+    // MARK: - Table View
+    
+    /**
+     * :brief: Returns the number of sections in the UI Table View.
+    */
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return self.fetchedResultsController.sections?.count ?? 0
+    }
+    /**
+     * :brief: Returns the number of rows in each section of the Table View.
+    */
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let sectionInfo = self.fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo
+        return sectionInfo.numberOfObjects
+    }
+    /**
+     * :brief: Returns the cell at the given index path.
+    */
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        self.configureCell(cell, atIndexPath: indexPath)
+        return cell
+    }
+    /**
+     * :return: If returning true, the specified item in the table is editable. If false, the item is not editable.
+    */
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    /**
+    :brief: Allows editing of tableview.
+    */
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            let context = self.fetchedResultsController.managedObjectContext
+            context.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject)
+                
+            var error: NSError? = nil
+            if !context.save(&error) {
+                // Replace this implementation with code to handle the error appropriately.
+                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                //println("Unresolved error \(error), \(error.userInfo)")
+                abort()
+            }
         }
     }
 
@@ -253,16 +266,5 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         self.tableView.endUpdates()
     }
-
-    /*
-     // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed.
-     
-     func controllerDidChangeContent(controller: NSFetchedResultsController) {
-         // In the simplest, most efficient, case, reload the table view.
-         self.tableView.reloadData()
-     }
-     */
-    
-    
 }
 

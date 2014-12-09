@@ -17,10 +17,9 @@
 		BE2DFF941A2D40A700056E0B /* ThirdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2DFF931A2D40A700056E0B /* ThirdTests.swift */; };
 		BE2DFF9E1A2D410900056E0B /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE2DFF9D1A2D410900056E0B /* TesseractOCR.framework */; };
 		BE2DFFAC1A2D4A6300056E0B /* customer receipt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE2DFFAB1A2D4A6300056E0B /* customer receipt.jpg */; };
+		BE35A0DC1A365C2800D74E34 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE35A0DB1A365C2800D74E34 /* EventKit.framework */; };
 		BE3CEE091A33DF890021FE0E /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE3CEE061A33DF460021FE0E /* GPUImage.framework */; };
 		BE4F4D101A2E3D860042C775 /* ImageRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F4D0F1A2E3D860042C775 /* ImageRecognitionViewController.swift */; };
-		BE55D86C1A3413BE00BECA54 /* FullSizeRender.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE55D86B1A3413BE00BECA54 /* FullSizeRender.jpg */; };
-		BE55D86E1A34150A00BECA54 /* belated-receipt.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BE55D86D1A34150A00BECA54 /* belated-receipt.jpeg */; };
 		BE66F1641A2D4D3800ACFEB8 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BE66F1631A2D4D3800ACFEB8 /* libstdc++.6.0.9.dylib */; };
 		BE66F16B1A2D504600ACFEB8 /* GroceryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE66F16A1A2D504600ACFEB8 /* GroceryList.swift */; };
 		BE66F16D1A2D504600ACFEB8 /* GroceryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE66F16C1A2D504600ACFEB8 /* GroceryItem.swift */; };
@@ -80,10 +79,9 @@
 		BE2DFF9D1A2D410900056E0B /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TesseractOCR.framework; path = Third/TesseractOCR.framework; sourceTree = "<group>"; };
 		BE2DFFA81A2D413900056E0B /* Third-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Third-Bridging-Header.h"; sourceTree = "<group>"; };
 		BE2DFFAB1A2D4A6300056E0B /* customer receipt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "customer receipt.jpg"; sourceTree = "<group>"; };
+		BE35A0DB1A365C2800D74E34 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		BE3CEDFD1A33DF460021FE0E /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = "../../../../Desktop/GPUImage-master/framework/GPUImage.xcodeproj"; sourceTree = "<group>"; };
 		BE4F4D0F1A2E3D860042C775 /* ImageRecognitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRecognitionViewController.swift; sourceTree = "<group>"; };
-		BE55D86B1A3413BE00BECA54 /* FullSizeRender.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = FullSizeRender.jpg; sourceTree = "<group>"; };
-		BE55D86D1A34150A00BECA54 /* belated-receipt.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "belated-receipt.jpeg"; sourceTree = "<group>"; };
 		BE66F1631A2D4D3800ACFEB8 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		BE66F16A1A2D504600ACFEB8 /* GroceryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryList.swift; sourceTree = "<group>"; };
 		BE66F16C1A2D504600ACFEB8 /* GroceryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryItem.swift; sourceTree = "<group>"; };
@@ -101,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE35A0DC1A365C2800D74E34 /* EventKit.framework in Frameworks */,
 				BE3CEE091A33DF890021FE0E /* GPUImage.framework in Frameworks */,
 				BE66F1641A2D4D3800ACFEB8 /* libstdc++.6.0.9.dylib in Frameworks */,
 				BE2DFF9E1A2D410900056E0B /* TesseractOCR.framework in Frameworks */,
@@ -120,6 +119,7 @@
 		BE2DFF6A1A2D40A700056E0B = {
 			isa = PBXGroup;
 			children = (
+				BE35A0DB1A365C2800D74E34 /* EventKit.framework */,
 				BE3CEDFD1A33DF460021FE0E /* GPUImage.xcodeproj */,
 				BE7CAC081A2F92E000CDCB91 /* tessdata */,
 				BE66F1691A2D4E8B00ACFEB8 /* OCRFiles */,
@@ -148,8 +148,6 @@
 				BE2DFF811A2D40A700056E0B /* Main.storyboard */,
 				BEBD82DA1A3035FF0035EF23 /* Resources */,
 				BE2DFF841A2D40A700056E0B /* Images.xcassets */,
-				BE55D86B1A3413BE00BECA54 /* FullSizeRender.jpg */,
-				BE55D86D1A34150A00BECA54 /* belated-receipt.jpeg */,
 				BE2DFF861A2D40A700056E0B /* LaunchScreen.xib */,
 				BE2DFF7A1A2D40A700056E0B /* Third.xcdatamodeld */,
 				BEB26E951A2FA074005B7A54 /* Event.swift */,
@@ -327,12 +325,10 @@
 				BE2DFF831A2D40A700056E0B /* Main.storyboard in Resources */,
 				BEBD82D51A3035F70035EF23 /* BebasNeue Regular.otf in Resources */,
 				BE7CAC091A2F92E000CDCB91 /* tessdata in Resources */,
-				BE55D86E1A34150A00BECA54 /* belated-receipt.jpeg in Resources */,
 				BE2DFF881A2D40A700056E0B /* LaunchScreen.xib in Resources */,
 				BEBD82D71A3035F70035EF23 /* BebasNeue Book.otf in Resources */,
 				BEBD82D81A3035F70035EF23 /* BebasNeue Bold.otf in Resources */,
 				BE2DFF851A2D40A700056E0B /* Images.xcassets in Resources */,
-				BE55D86C1A3413BE00BECA54 /* FullSizeRender.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

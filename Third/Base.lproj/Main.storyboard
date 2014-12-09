@@ -57,7 +57,7 @@
                             <outlet property="delegate" destination="pGg-6v-bdr" id="Y6K-Cp-Qkv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Groceries" id="tQt-TN-PWz">
+                    <navigationItem key="navigationItem" title="Receipt Items" id="tQt-TN-PWz">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="bTF-Iy-csI">
                             <connections>
                                 <segue destination="L0m-0h-98d" kind="show" identifier="addImage" id="71G-xP-8cf"/>
@@ -115,11 +115,11 @@
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Uu-Hm-v4M">
-                                <rect key="frame" x="234" y="473" width="133" height="30"/>
+                                <rect key="frame" x="235" y="473" width="131" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Zdx-3j-yvG"/>
                                 </constraints>
-                                <state key="normal" title="Add Grocery Items!">
+                                <state key="normal" title="Add Receipt Items!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -169,8 +169,8 @@
                                 <rect key="frame" x="217" y="203" width="167" height="36"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="167" id="XUe-Qe-C4W"/>
-                                    <constraint firstAttribute="height" constant="36" id="uOM-8k-zfT"/>
+                                    <constraint firstAttribute="height" constant="36" id="Qi0-kt-LES"/>
+                                    <constraint firstAttribute="width" constant="167" id="VyR-Lu-2MH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" size="system"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -182,29 +182,10 @@
                                     <action selector="pressedSwitch:" destination="Ah7-4n-0Wa" eventType="valueChanged" id="6ds-jj-hWI"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Purchased" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AWN-E8-wln">
-                                <rect key="frame" x="239" y="128" width="123" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="kvU-RR-GMI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qU9-nh-wwc">
-                                <rect key="frame" x="97" y="427" width="408" height="56"/>
-                                <state key="normal" title="Set Reminder">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="userDidClickToSetUpReminder:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="gH0-6T-QMP"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add to Grocery List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbi-kf-KdE">
                                 <rect key="frame" x="178" y="247" width="245" height="37"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="245" id="RJ2-oa-7rP"/>
-                                    <constraint firstAttribute="height" constant="37" id="qWa-br-yHi"/>
+                                    <constraint firstAttribute="width" constant="245" id="uGc-VE-Pql"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -213,26 +194,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jbi-kf-KdE" firstAttribute="centerX" secondItem="MMQ-IT-qOo" secondAttribute="centerX" id="DvW-pG-WwU"/>
-                            <constraint firstItem="jbi-kf-KdE" firstAttribute="top" secondItem="Lei-5M-9Gs" secondAttribute="bottom" constant="8" symbolic="YES" id="NFV-mU-eoJ"/>
-                            <constraint firstItem="xct-J6-1n3" firstAttribute="centerX" secondItem="jbi-kf-KdE" secondAttribute="centerX" id="SZm-lx-GV5"/>
-                            <constraint firstItem="qU9-nh-wwc" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leadingMargin" constant="81" id="ZrT-uJ-d5i"/>
-                            <constraint firstItem="Lei-5M-9Gs" firstAttribute="top" secondItem="AWN-E8-wln" secondAttribute="bottom" constant="25" id="ara-lB-UBI"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qU9-nh-wwc" secondAttribute="trailing" constant="79" id="bBl-Sq-eq4"/>
-                            <constraint firstItem="Lei-5M-9Gs" firstAttribute="centerX" secondItem="jbi-kf-KdE" secondAttribute="centerX" id="dwO-4q-rAa"/>
-                            <constraint firstItem="qU9-nh-wwc" firstAttribute="top" secondItem="xct-J6-1n3" secondAttribute="bottom" constant="92" id="fmN-dT-pzh"/>
-                            <constraint firstItem="AWN-E8-wln" firstAttribute="top" secondItem="cIm-e0-J51" secondAttribute="bottom" constant="64" id="lOj-0J-2CH"/>
-                            <constraint firstItem="xct-J6-1n3" firstAttribute="top" secondItem="jbi-kf-KdE" secondAttribute="bottom" constant="20" id="m2b-wm-hPt"/>
-                            <constraint firstItem="a0L-h9-sNL" firstAttribute="top" secondItem="qU9-nh-wwc" secondAttribute="bottom" constant="117" id="vDC-la-neN"/>
-                            <constraint firstItem="Lei-5M-9Gs" firstAttribute="centerX" secondItem="AWN-E8-wln" secondAttribute="centerX" id="w7Q-W3-LBh"/>
+                            <constraint firstItem="jbi-kf-KdE" firstAttribute="top" secondItem="Lei-5M-9Gs" secondAttribute="bottom" constant="8" symbolic="YES" id="Hys-bc-waR"/>
+                            <constraint firstItem="xct-J6-1n3" firstAttribute="top" secondItem="jbi-kf-KdE" secondAttribute="bottom" constant="20" id="QYU-kq-xO0"/>
+                            <constraint firstItem="a0L-h9-sNL" firstAttribute="top" secondItem="xct-J6-1n3" secondAttribute="bottom" constant="265" id="SBx-Ad-tV0"/>
+                            <constraint firstItem="jbi-kf-KdE" firstAttribute="centerX" secondItem="xct-J6-1n3" secondAttribute="centerX" id="UHj-pq-IBG"/>
+                            <constraint firstItem="Lei-5M-9Gs" firstAttribute="top" secondItem="cIm-e0-J51" secondAttribute="bottom" constant="139" id="rhh-yy-4gv"/>
+                            <constraint firstItem="Lei-5M-9Gs" firstAttribute="centerX" secondItem="jbi-kf-KdE" secondAttribute="centerX" id="wf6-BN-IBB"/>
+                            <constraint firstItem="Lei-5M-9Gs" firstAttribute="centerX" secondItem="MMQ-IT-qOo" secondAttribute="centerX" id="z2C-E6-skI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="cra-N8-TIN"/>
                     <connections>
-                        <outlet property="datePurchased" destination="AWN-E8-wln" id="Tc8-aW-tJx"/>
                         <outlet property="detailDescriptionLabel" destination="Lei-5M-9Gs" id="sCT-F7-F6f"/>
                         <outlet property="isOutLabel" destination="jbi-kf-KdE" id="lW0-y9-ART"/>
-                        <outlet property="setReminderButtonLabel" destination="qU9-nh-wwc" id="Gxc-Ml-aBg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-kH-fPn" sceneMemberID="firstResponder"/>

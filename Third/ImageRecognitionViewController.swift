@@ -8,16 +8,12 @@
 
 import GPUImage
 
+///Protocol used to pass OCR text to other view controllers
 protocol recognizedDataDelegate {
     func receiptWasCapturedAndRecognized(readText: String) -> String
 }
 
-/**
- * :brief: This is the class to provide the user with an interface for scanning their\n
- * receipts. The app sets the default viewing font, brings up a camera view, and prompts\n
- * the user to "scan a receipt!"\n
-*/
-
+/// This is the class to provide the user with an interface for scanning their receipts. The app sets the default viewing font, brings up a camera view, and prompts the user to "scan a receipt!"
 class ImageRecognitionViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     override func viewDidLoad() {
@@ -35,8 +31,7 @@ class ImageRecognitionViewController: UIViewController, UIImagePickerControllerD
         textLabel.text = "Scan a receipt!"
     }
     
-    ///ToDo Error check me
-    let defaultImage: UIImage = UIImage(named: "belated-receipt.jpeg")!
+    let defaultImage: UIImage = UIImage(named: "customer receipt.jpg")!
     let cameraImage: UIImage?
     var delegate: recognizedDataDelegate? = nil
     
@@ -52,18 +47,23 @@ class ImageRecognitionViewController: UIViewController, UIImagePickerControllerD
             return Void()
         })
     }
-    
+    /**
+    :brief: Function that presents the user with a camera view to take a photo for OCR
+    :param: sender The calling object
+    */
     @IBAction func didRequestCamera(sender: AnyObject) {
         let imagePickerController: UIImagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.sourceType = UIImagePickerControllerSourceType.Camera
         imagePickerController.allowsEditing = false
         self.presentViewController(imagePickerController, animated: true, completion: nil)
-
     }
     
+    /**
+    :brief: Function OCRs a default image instead of opening the camera
+    :param: sender The functions caller
+    */
     @IBAction func didRequestCameraRollImage(sender: AnyObject) {
-//        println("\(recognize(defaultImage)) Hello World")
         let recognizedText = recognize(defaultImage)
         if delegate != nil {
             delegate!.receiptWasCapturedAndRecognized(recognizedText)
@@ -80,7 +80,11 @@ class ImageRecognitionViewController: UIViewController, UIImagePickerControllerD
     */
 
     func recognize(image: UIImage) -> String {
-        
+        /**
+        :brief: Algorithm used to binarize image prior to OCR processing
+        :param: sourceImage the Image to be binarized
+        :return: The binarzied Image
+        */
         func binarize(sourceImage: UIImage) -> UIImage {
             let grayscaleImage: UIImage = sourceImage.grayScale()
             let imageSource: GPUImagePicture = GPUImagePicture(image: grayscaleImage)
@@ -95,49 +99,8 @@ class ImageRecognitionViewController: UIViewController, UIImagePickerControllerD
             return returnImage
         }
         
-        func grayImage(inputImage: UIImage) -> UIImage {
-            UIGraphicsBeginImageContextWithOptions(inputImage.size, false, 1.0)
-            let imageRectangle: CGRect = CGRectMake(0, 0, inputImage.size.width, inputImage.size.height)
-            inputImage.drawInRect(imageRectangle, blendMode: kCGBlendModeLuminosity, alpha: 1.0)
-            
-            
-            let outputImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-            
-            return outputImage
-        }
-
-        
-        
-
-        
-        /* Ignore me
-        stillImageFilter.blurSize = 8.0;
-        [imageSource addTarget:stillImageFilter];
-        UIImage *retImage = [stillImageFilter imageFromCurrentlyProcessedOutput];
-        return retImage;}
-        
-        + (UIImage *) grayImage :(UIImage *)inputImage
-        {
-        // Create a graphic context.
-        CGRect imageRect = CGRectMake(0, 0, inputImage.size.width, inputImage.size.height);
-        
-        // Draw the image with the luminosity blend mode.
-        // On top of a white background, this will give a black and white image.
-        [inputImage drawInRect:imageRect blendMode:kCGBlendModeLuminosity alpha:1.0];
-        
-        // Get the resulting image.
-        UIImage *outputImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        
-        return outputImage;
-        }
-        */
-        
-       
-        
         let tesseract = Tesseract(language: "eng+ita")
-        tesseract.image = image.grayScale()
+        tesseract.image = binarize(image)
         tesseract.recognize()
         
         textLabel.numberOfLines = 30
